@@ -27,31 +27,132 @@ const TYPE_CHART = {
   "フェアリー": {"ほのお": 0.5, "かくとう": 2, "どく": 0.5, "ドラゴン": 2, "あく": 2, "はがね": 0.5}
 };
 
+const POKEMON_DB = [
+  ["カイリュー", "ドラゴン", "ひこう", ["ドラゴン", "ひこう", "ノーマル"]],
+  ["ガブリアス", "ドラゴン", "じめん", ["じめん", "ドラゴン", "いわ", "どく"]],
+  ["サーフゴー", "はがね", "ゴースト", ["はがね", "ゴースト", "かくとう"]],
+  ["ドドゲザン", "あく", "はがね", ["あく", "はがね", "かくとう"]],
+  ["ハバタクカミ", "ゴースト", "フェアリー", ["ゴースト", "フェアリー", "でんき"]],
+  ["パオジアン", "あく", "こおり", ["あく", "こおり", "かくとう"]],
+  ["ディンルー", "あく", "じめん", ["じめん", "あく", "いわ"]],
+  ["イーユイ", "あく", "ほのお", ["ほのお", "あく", "エスパー"]],
+  ["ミミッキュ", "ゴースト", "フェアリー", ["ゴースト", "フェアリー", "かくとう"]],
+  ["マリルリ", "みず", "フェアリー", ["みず", "フェアリー", "かくとう"]],
+  ["ギャラドス", "みず", "ひこう", ["みず", "ひこう", "あく", "じめん"]],
+  ["ゲンガー", "ゴースト", "どく", ["ゴースト", "どく", "かくとう"]],
+  ["ライチュウ", "でんき", "", ["でんき", "かくとう", "ノーマル"]],
+  ["リザードン", "ほのお", "ひこう", ["ほのお", "ひこう", "ドラゴン"]],
+  ["ハガネール", "はがね", "じめん", ["じめん", "はがね", "いわ"]],
+  ["エルフーン", "くさ", "フェアリー", ["くさ", "フェアリー", "ひこう"]],
+  ["アシレーヌ", "みず", "フェアリー", ["みず", "フェアリー", "こおり"]],
+  ["ブリジュラス", "はがね", "ドラゴン", ["はがね", "ドラゴン", "でんき"]],
+  ["ランドロス", "じめん", "ひこう", ["じめん", "ひこう", "いわ"]],
+  ["ウーラオス", "かくとう", "みず", ["かくとう", "みず", "あく"]],
+  ["水ウーラオス", "かくとう", "みず", ["かくとう", "みず", "あく"]],
+  ["悪ウーラオス", "かくとう", "あく", ["かくとう", "あく", "どく"]],
+  ["オーガポン", "くさ", "", ["くさ", "かくとう"]],
+  ["オーガポン(炎)", "くさ", "ほのお", ["くさ", "ほのお", "かくとう"]],
+  ["オーガポン(水)", "くさ", "みず", ["くさ", "みず", "かくとう"]],
+  ["オーガポン(岩)", "くさ", "いわ", ["くさ", "いわ", "かくとう"]],
+  ["キョジオーン", "いわ", "", ["いわ", "じめん"]],
+  ["ヘイラッシャ", "みず", "", ["みず", "じめん", "こおり"]],
+  ["ラウドボーン", "ほのお", "ゴースト", ["ほのお", "ゴースト", "フェアリー"]],
+  ["ウォッシュロトム", "でんき", "みず", ["でんき", "みず", "あく"]],
+  ["ヒートロトム", "でんき", "ほのお", ["でんき", "ほのお", "あく"]],
+  ["カットロトム", "でんき", "くさ", ["でんき", "くさ", "あく"]],
+  ["フロストロトム", "でんき", "こおり", ["でんき", "こおり", "あく"]],
+  ["スピンロトム", "でんき", "ひこう", ["でんき", "ひこう", "あく"]],
+  ["ドラパルト", "ドラゴン", "ゴースト", ["ドラゴン", "ゴースト", "ほのお"]],
+  ["サザンドラ", "あく", "ドラゴン", ["あく", "ドラゴン", "ほのお"]],
+  ["バンギラス", "いわ", "あく", ["いわ", "あく", "じめん"]],
+  ["ドリュウズ", "じめん", "はがね", ["じめん", "はがね", "いわ"]],
+  ["アーマーガア", "ひこう", "はがね", ["ひこう", "はがね", "かくとう"]],
+  ["ブラッキー", "あく", "", ["あく", "どく"]],
+  ["ニンフィア", "フェアリー", "", ["フェアリー", "エスパー"]],
+  ["キラフロル", "いわ", "どく", ["いわ", "どく", "じめん"]],
+  ["ウルガモス", "むし", "ほのお", ["むし", "ほのお", "くさ"]],
+  ["ソウブレイズ", "ほのお", "ゴースト", ["ほのお", "ゴースト", "かくとう"]],
+  ["マスカーニャ", "くさ", "あく", ["くさ", "あく", "かくとう"]],
+  ["マンムー", "こおり", "じめん", ["こおり", "じめん", "いわ"]],
+  ["ハッサム", "むし", "はがね", ["むし", "はがね", "かくとう"]],
+  ["ルカリオ", "かくとう", "はがね", ["かくとう", "はがね", "あく"]],
+  ["カビゴン", "ノーマル", "", ["ノーマル", "じめん", "かくとう"]],
+  ["ピカチュウ", "でんき", "", ["でんき", "ノーマル", "かくとう"]]
+];
+
+const USAGE_DB = {
+  "ガブリアス": {
+    source: "ポケモン徹底攻略 ガブリアスのバトルデータ",
+    sourceUrl: "https://yakkun.com/ch/theory/p445",
+    nature: [
+      ["ようき", 70.8, "素早さ重視。上から行動されやすいので、同速・上取り・スカーフを警戒"],
+      ["いじっぱり", 14.5, "火力重視。受け出し時の被ダメージが想定より伸びる可能性"],
+      ["わんぱく", 9.3, "物理耐久寄り。ステルスロックや起点作り型を警戒"]
+    ],
+    ability: [
+      ["さめはだ", 99.1, "接触技で削られるため、物理接触技の連打に注意"],
+      ["すながくれ", 0.5, "砂下で命中不安が出る場合あり"]
+    ],
+    item: [
+      ["きあいのタスキ", 41.1, "一撃で倒し切れず反撃やステルスロック展開を許しやすい"],
+      ["こだわりスカーフ", 35.1, "想定外に上から動かれる可能性。素早さ判定は慎重に"],
+      ["オボンのみ", 12.4, "中途半端な削りでは耐えられて行動回数を稼がれやすい"],
+      ["ラムのみ", 4.4, "おにび・でんじは等の状態異常で止める計画が崩れる場合あり"]
+    ],
+    moves: [
+      ["じしん", 99.7, "じめん弱点のポケモンは対面を避けたい"],
+      ["げきりん", 53.4, "ドラゴン等倍以上への高火力打点。フェアリー後投げが有効な場面あり"],
+      ["ステルスロック", 45.1, "初手や有利対面で場作りされやすい"],
+      ["がんせきふうじ", 39.1, "素早さを下げられて次ターンの行動順が逆転しやすい"],
+      ["スケイルショット", 35.8, "攻撃しながら素早さを上げる展開に注意"],
+      ["つるぎのまい", 24.9, "有利対面で積まれると受けが成立しにくい"],
+      ["いわなだれ", 23.8, "ひこう・ほのおへのサブ打点に注意"],
+      ["どくづき", 19.6, "フェアリー後投げだけで安定しない場合あり"],
+      ["ドラゴンテール", 13.4, "積みや受け展開を流される可能性"],
+      ["ほのおのキバ", 13.4, "はがね・くさへの役割破壊に注意"]
+    ],
+    evs: [
+      ["攻撃32・素早32", 58.7, "攻撃と素早さに振り切った高速物理型が基本"],
+      ["攻撃32・防御2・素早32", 11.4, "ほぼAS寄り。耐久微調整程度"],
+      ["HP32・攻撃32・素早2", 2.3, "耐久寄りの起点作り・サイクル参加を警戒"]
+    ]
+  }
+};
+
 const SAMPLE_MINE = [
-  ["ライチュウ", "でんき", "なし"],
-  ["ドドゲザン", "あく", "はがね"],
-  ["ガブリアス", "ドラゴン", "じめん"],
-  ["マリルリ", "みず", "フェアリー"],
-  ["ギャラドス", "みず", "ひこう"],
-  ["ゲンガー", "ゴースト", "どく"]
+  {name: "ライチュウ", type1: "でんき", type2: "", moves: ["でんき", "かくとう"]},
+  {name: "ドドゲザン", type1: "あく", type2: "はがね", moves: ["あく", "はがね", "かくとう"]},
+  {name: "ガブリアス", type1: "ドラゴン", type2: "じめん", moves: ["じめん", "ドラゴン", "いわ"]},
+  {name: "マリルリ", type1: "みず", type2: "フェアリー", moves: ["みず", "フェアリー", "かくとう"]},
+  {name: "ギャラドス", type1: "みず", type2: "ひこう", moves: ["みず", "ひこう", "じめん"]},
+  {name: "ゲンガー", type1: "ゴースト", type2: "どく", moves: ["ゴースト", "どく", "かくとう"]}
 ];
 
 const SAMPLE_OPPONENTS = [
-  ["", "ほのお", "ひこう"],
-  ["", "みず", "フェアリー"],
-  ["", "はがね", "じめん"],
-  ["", "くさ", "フェアリー"],
-  ["", "ゴースト", "どく"],
-  ["", "ドラゴン", "ひこう"]
+  {name: "", type1: "ほのお", type2: "ひこう", moves: ["ほのお", "ひこう"]},
+  {name: "", type1: "みず", type2: "フェアリー", moves: ["みず", "フェアリー"]},
+  {name: "", type1: "はがね", type2: "じめん", moves: ["じめん", "はがね"]},
+  {name: "", type1: "くさ", type2: "フェアリー", moves: ["くさ", "フェアリー"]},
+  {name: "", type1: "ゴースト", type2: "どく", moves: ["ゴースト", "どく"]},
+  {name: "", type1: "ドラゴン", type2: "ひこう", moves: ["ドラゴン", "ひこう"]}
 ];
 
 const STORAGE_KEY = "pokemon-selection-assistant-parties";
-
 const ownParty = document.querySelector("#ownParty");
 const opponentParty = document.querySelector("#opponentParty");
 const resultText = document.querySelector("#resultText");
+const referenceLinks = document.querySelector("#referenceLinks");
 const partyName = document.querySelector("#partyName");
 const partySelect = document.querySelector("#partySelect");
+
+function pokemonRecord(name) {
+  const normalized = name.trim();
+  return POKEMON_DB.find((item) => item[0] === normalized);
+}
+
+function optionsHtml() {
+  return TYPES.map((type) => `<option value="${type}">${type}</option>`).join("");
+}
 
 function buildPartyInputs(container, prefix) {
   for (let index = 0; index < 6; index += 1) {
@@ -59,23 +160,27 @@ function buildPartyInputs(container, prefix) {
     slot.className = "pokemon-slot";
     slot.innerHTML = `
       <label for="${prefix}-name-${index}">${index + 1}体目</label>
-      <input id="${prefix}-name-${index}" data-field="name" data-index="${index}" type="text" autocomplete="off">
+      <input id="${prefix}-name-${index}" list="pokemonNameList" data-field="name" data-index="${index}" type="text" autocomplete="off" placeholder="名前">
       <div class="type-row">
-        <select data-field="type1" data-index="${index}" aria-label="${index + 1}体目 タイプ1"></select>
-        <select data-field="type2" data-index="${index}" aria-label="${index + 1}体目 タイプ2"></select>
+        <select data-field="type1" data-index="${index}" aria-label="${index + 1}体目 タイプ1">${optionsHtml()}</select>
+        <select data-field="type2" data-index="${index}" aria-label="${index + 1}体目 タイプ2">${optionsHtml()}</select>
       </div>
+      <div class="move-preview" data-field="moves" data-index="${index}">参考技タイプ: 未設定</div>
+      <div class="candidate-list" data-field="candidates" data-index="${index}"></div>
     `;
     container.appendChild(slot);
   }
+}
 
-  container.querySelectorAll("select").forEach((select) => {
-    TYPES.forEach((type) => {
-      const option = document.createElement("option");
-      option.value = type;
-      option.textContent = type;
-      select.appendChild(option);
-    });
+function buildNameList() {
+  const datalist = document.createElement("datalist");
+  datalist.id = "pokemonNameList";
+  POKEMON_DB.forEach(([name]) => {
+    const option = document.createElement("option");
+    option.value = name;
+    datalist.appendChild(option);
   });
+  document.body.appendChild(datalist);
 }
 
 function cleanType(value) {
@@ -86,16 +191,36 @@ function displayType(value) {
   return value || "なし";
 }
 
+function slotValue(container, field, index) {
+  return container.querySelector(`[data-field="${field}"][data-index="${index}"]`).value;
+}
+
+function setSlotValue(container, field, index, value) {
+  container.querySelector(`[data-field="${field}"][data-index="${index}"]`).value = value;
+}
+
+function readMoves(container, index) {
+  const name = slotValue(container, "name", index).trim();
+  const record = pokemonRecord(name);
+  return record ? record[3] : [];
+}
+
+function fallbackMoves(pokemon) {
+  if (pokemon.moves && pokemon.moves.length > 0) return pokemon.moves;
+  return [pokemon.type1, pokemon.type2].filter(Boolean);
+}
+
 function readParty(container, {allowTypeOnly = false, opponentPrefix = "相手"} = {}) {
   const rows = [];
   for (let index = 0; index < 6; index += 1) {
-    const name = container.querySelector(`[data-field="name"][data-index="${index}"]`).value.trim();
-    const type1 = cleanType(container.querySelector(`[data-field="type1"][data-index="${index}"]`).value);
-    const type2 = cleanType(container.querySelector(`[data-field="type2"][data-index="${index}"]`).value);
+    const name = slotValue(container, "name", index).trim();
+    const type1 = cleanType(slotValue(container, "type1", index));
+    const type2 = cleanType(slotValue(container, "type2", index));
+    const moves = readMoves(container, index);
     const hasName = name.length > 0;
     const hasType = Boolean(type1 || type2);
     if (hasName || (allowTypeOnly && hasType)) {
-      rows.push({name: name || `${opponentPrefix}${index + 1}体目`, type1, type2});
+      rows.push({name: name || `${opponentPrefix}${index + 1}体目`, type1, type2, moves});
     }
   }
   return rows;
@@ -105,23 +230,36 @@ function readAllSlots(container) {
   const rows = [];
   for (let index = 0; index < 6; index += 1) {
     rows.push({
-      name: container.querySelector(`[data-field="name"][data-index="${index}"]`).value.trim(),
-      type1: cleanType(container.querySelector(`[data-field="type1"][data-index="${index}"]`).value),
-      type2: cleanType(container.querySelector(`[data-field="type2"][data-index="${index}"]`).value)
+      name: slotValue(container, "name", index).trim(),
+      type1: cleanType(slotValue(container, "type1", index)),
+      type2: cleanType(slotValue(container, "type2", index)),
+      moves: readMoves(container, index)
     });
   }
   return rows;
+}
+
+function fillMoves(container, index, moves = []) {
+  const box = container.querySelector(`[data-field="moves"][data-index="${index}"]`);
+  const text = moves.length > 0 ? moves.join("/") : "未設定";
+  box.textContent = `参考技タイプ: ${text}`;
+}
+
+function fillSlot(container, index, pokemon) {
+  setSlotValue(container, "name", index, pokemon.name || "");
+  setSlotValue(container, "type1", index, displayType(pokemon.type1));
+  setSlotValue(container, "type2", index, displayType(pokemon.type2));
+  fillMoves(container, index, pokemon.moves || []);
+  updateCandidates(container, index);
 }
 
 function fillParty(container, data) {
   clearParty(container);
   data.slice(0, 6).forEach((pokemon, index) => {
     const item = Array.isArray(pokemon)
-      ? {name: pokemon[0], type1: cleanType(pokemon[1]), type2: cleanType(pokemon[2])}
+      ? {name: pokemon[0], type1: cleanType(pokemon[1]), type2: cleanType(pokemon[2]), moves: pokemon[3] || []}
       : pokemon;
-    container.querySelector(`[data-field="name"][data-index="${index}"]`).value = item.name || "";
-    container.querySelector(`[data-field="type1"][data-index="${index}"]`).value = displayType(item.type1);
-    container.querySelector(`[data-field="type2"][data-index="${index}"]`).value = displayType(item.type2);
+    fillSlot(container, index, item);
   });
 }
 
@@ -132,10 +270,74 @@ function clearParty(container) {
   container.querySelectorAll("select").forEach((select) => {
     select.value = "なし";
   });
+  container.querySelectorAll(".move-preview").forEach((box) => {
+    box.textContent = "参考技タイプ: 未設定";
+  });
+  container.querySelectorAll(".candidate-list").forEach((box) => {
+    box.textContent = "";
+  });
+}
+
+function applyPokemonRecord(container, index, record) {
+  const [name, type1, type2, moves] = record;
+  fillSlot(container, index, {name, type1, type2, moves});
+}
+
+function updateCandidates(container, index) {
+  const box = container.querySelector(`[data-field="candidates"][data-index="${index}"]`);
+  const type1 = cleanType(slotValue(container, "type1", index));
+  const type2 = cleanType(slotValue(container, "type2", index));
+  const selectedTypes = [type1, type2].filter(Boolean);
+  box.innerHTML = "";
+  if (selectedTypes.length === 0) return;
+
+  const candidates = POKEMON_DB
+    .filter(([, dbType1, dbType2]) => selectedTypes.every((type) => [dbType1, dbType2].includes(type)))
+    .slice(0, 8);
+
+  if (candidates.length === 0) {
+    box.textContent = "候補なし";
+    return;
+  }
+
+  candidates.forEach((record) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = record[0];
+    button.addEventListener("click", () => applyPokemonRecord(container, index, record));
+    box.appendChild(button);
+  });
+}
+
+function wireAutoFill(container) {
+  container.addEventListener("change", (event) => {
+    const target = event.target;
+    const index = Number(target.dataset.index);
+    if (!Number.isInteger(index)) return;
+
+    if (target.dataset.field === "type1" || target.dataset.field === "type2") {
+      updateCandidates(container, index);
+      const name = slotValue(container, "name", index).trim();
+      const record = pokemonRecord(name);
+      fillMoves(container, index, record ? record[3] : []);
+    }
+  });
+
+  container.addEventListener("input", (event) => {
+    const target = event.target;
+    if (target.dataset.field !== "name") return;
+    const index = Number(target.dataset.index);
+    const record = pokemonRecord(target.value);
+    if (record) applyPokemonRecord(container, index, record);
+  });
 }
 
 function typeText(pokemon) {
   return [pokemon.type1, pokemon.type2].filter(Boolean).join("/") || "タイプ未設定";
+}
+
+function moveText(pokemon) {
+  return fallbackMoves(pokemon).join("/") || "技タイプ未設定";
 }
 
 function multiplier(attackType, defendTypes) {
@@ -146,25 +348,45 @@ function multiplier(attackType, defendTypes) {
   }, 1);
 }
 
-function bestAttackMultiplier(attacker, defender) {
-  const attackTypes = [attacker.type1, attacker.type2].filter(Boolean);
-  if (attackTypes.length === 0) return 1;
-  return Math.max(...attackTypes.map((type) => multiplier(type, [defender.type1, defender.type2])));
+function moveImpact(attacker, defender, moveType) {
+  const stab = [attacker.type1, attacker.type2].includes(moveType) ? 1.5 : 1;
+  return multiplier(moveType, [defender.type1, defender.type2]) * stab;
+}
+
+function bestMoveImpact(attacker, defender) {
+  const moves = fallbackMoves(attacker);
+  if (moves.length === 0) return 1;
+  return Math.max(...moves.map((moveType) => moveImpact(attacker, defender, moveType)));
+}
+
+function bestRawMoveMultiplier(attacker, defender) {
+  const moves = fallbackMoves(attacker);
+  if (moves.length === 0) return 1;
+  return Math.max(...moves.map((moveType) => multiplier(moveType, [defender.type1, defender.type2])));
+}
+
+function coverageBonus(attacker, opponents) {
+  const moves = fallbackMoves(attacker);
+  const distinctMoves = new Set(moves).size;
+  const superEffectiveCount = opponents.filter((opponent) => bestRawMoveMultiplier(attacker, opponent) >= 2).length;
+  return (distinctMoves * 8) + (superEffectiveCount * 12);
 }
 
 function matchupScore(own, opponent) {
-  const attack = bestAttackMultiplier(own, opponent);
-  const damageTaken = bestAttackMultiplier(opponent, own);
+  const attack = bestMoveImpact(own, opponent);
+  const damageTaken = bestMoveImpact(opponent, own);
   return (attack * 30) - (damageTaken * 24);
 }
 
 function totalScore(own, opponents) {
-  const attackTotal = opponents.reduce((sum, opponent) => sum + bestAttackMultiplier(own, opponent), 0);
-  const damageTotal = opponents.reduce((sum, opponent) => sum + bestAttackMultiplier(opponent, own), 0);
+  const attackTotal = opponents.reduce((sum, opponent) => sum + bestMoveImpact(own, opponent), 0);
+  const damageTotal = opponents.reduce((sum, opponent) => sum + bestMoveImpact(opponent, own), 0);
+  const bonus = coverageBonus(own, opponents);
   return {
-    score: (attackTotal * 100) - (damageTotal * 80),
+    score: (attackTotal * 100) - (damageTotal * 80) + bonus,
     attackTotal,
-    damageTotal
+    damageTotal,
+    bonus
   };
 }
 
@@ -174,6 +396,50 @@ function matchupLabel(score) {
   if (score >= -6) return "五分";
   if (score >= -24) return "不利";
   return "かなり不利";
+}
+
+function topUsageText(items, limit = 3) {
+  return items.slice(0, limit).map(([name, rate]) => `${name} ${rate}%`).join("、");
+}
+
+function buildUsageWarnings(pokemon) {
+  const data = USAGE_DB[pokemon.name];
+  if (!data) return [];
+
+  const warnings = [];
+  warnings.push(`${pokemon.name}: ${data.source}`);
+  warnings.push(`性格: ${topUsageText(data.nature)}。${data.nature[0][2]}`);
+  warnings.push(`特性: ${topUsageText(data.ability, 2)}。${data.ability[0][2]}`);
+  warnings.push(`持ち物: ${topUsageText(data.item, 4)}。${data.item[0][2]}`);
+  warnings.push(`覚えている技: ${topUsageText(data.moves, 6)}。${data.moves.slice(0, 4).map((item) => item[2]).join(" / ")}`);
+  warnings.push(`能力ポイント: ${topUsageText(data.evs, 3)}。${data.evs[0][2]}`);
+  warnings.push(`参考: ${data.sourceUrl}`);
+  return warnings;
+}
+
+function usageWarningSection(mine, opponents, selection) {
+  const namedOpponents = opponents.filter((pokemon) => USAGE_DB[pokemon.name]);
+  const selectedMine = selection.filter((pokemon) => USAGE_DB[pokemon.name]);
+  const targets = namedOpponents.length > 0 ? namedOpponents : selectedMine;
+  if (targets.length === 0) {
+    return [
+      "【採用率に基づく注意点】",
+      "現在の内蔵データに一致するポケモンがいないため、採用率ベースの注意点は表示できません。",
+      "名前を正確に入力すると、対応データがあるポケモンは注意点が表示されます。"
+    ];
+  }
+
+  const lines = ["【採用率に基づく注意点】"];
+  if (namedOpponents.length > 0) {
+    lines.push("相手パーティの名前入力に一致したポケモンを優先して表示します。");
+  } else {
+    lines.push("相手側に一致データがないため、選出された自分のポケモンについて表示します。");
+  }
+  targets.forEach((pokemon) => {
+    lines.push("");
+    buildUsageWarnings(pokemon).forEach((warning) => lines.push(`- ${warning}`));
+  });
+  return lines;
 }
 
 function assignmentForSelection(selection, opponents) {
@@ -207,13 +473,41 @@ function refreshPartySelect() {
     option.textContent = name;
     partySelect.appendChild(option);
   });
-  if (parties[current]) {
-    partySelect.value = current;
-  }
+  if (parties[current]) partySelect.value = current;
 }
 
 function showMessage(message) {
   resultText.textContent = message;
+  renderReferenceLinks([]);
+}
+
+function yakkunSearchUrl(name) {
+  const query = `site:yakkun.com/ch/theory/ ${name} 育成論`;
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
+function renderReferenceLinks(selection = []) {
+  referenceLinks.innerHTML = "";
+  [
+    ["ポケ徹 育成論トップ", "https://yakkun.com/ch/theory/"],
+    ["ポケ徹 詳細検索", "https://yakkun.com/ch/theory/search/"]
+  ].forEach(([text, href]) => {
+    const link = document.createElement("a");
+    link.href = href;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = text;
+    referenceLinks.appendChild(link);
+  });
+
+  selection.forEach((pokemon) => {
+    const link = document.createElement("a");
+    link.href = yakkunSearchUrl(pokemon.name);
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = `${pokemon.name}の育成論を探す`;
+    referenceLinks.appendChild(link);
+  });
 }
 
 function handleSaveParty() {
@@ -284,20 +578,21 @@ function recommend() {
 
   const lines = [];
   lines.push("【選出すべき3体】");
-  lines.push(selection.map((pokemon) => `${pokemon.name}（${typeText(pokemon)}）`).join(" / "));
+  lines.push(selection.map((pokemon) => `${pokemon.name}（${typeText(pokemon)} / 技:${moveText(pokemon)}）`).join(" / "));
   lines.push("");
   lines.push("【総合スコア】");
   ranked.forEach((item, index) => {
     const selected = selection.includes(item.pokemon) ? " 選出" : "";
-    lines.push(`${index + 1}. ${item.pokemon.name}（${typeText(item.pokemon)}）: 総合 ${item.score.toFixed(1)} / 攻撃倍率合計 ${item.attackTotal.toFixed(2)} / 被ダメージ倍率合計 ${item.damageTotal.toFixed(2)}${selected}`);
+    lines.push(`${index + 1}. ${item.pokemon.name}（${typeText(item.pokemon)}）: 総合 ${item.score.toFixed(1)} / 攻撃評価 ${item.attackTotal.toFixed(2)} / 被ダメージ評価 ${item.damageTotal.toFixed(2)} / 技範囲補正 ${item.bonus.toFixed(1)}${selected}`);
+    lines.push(`   技タイプ: ${moveText(item.pokemon)}`);
   });
   lines.push("");
   lines.push("【誰を誰に対面させるか】");
   assignments.forEach(({opponent, own}) => {
     const score = matchupScore(own, opponent);
-    const attack = bestAttackMultiplier(own, opponent);
-    const taken = bestAttackMultiplier(opponent, own);
-    lines.push(`${opponent.name}（${typeText(opponent)}）には ${own.name}（${typeText(own)}）: ${matchupLabel(score)} / 攻撃相性 x${attack}・被弾相性 x${taken}`);
+    const attack = bestRawMoveMultiplier(own, opponent);
+    const taken = bestRawMoveMultiplier(opponent, own);
+    lines.push(`${opponent.name}（${typeText(opponent)} / 技:${moveText(opponent)}）には ${own.name}（${typeText(own)}）: ${matchupLabel(score)} / 最高攻撃倍率 x${attack}・最高被弾倍率 x${taken}`);
   });
   lines.push("");
   lines.push("【選出内の担当数】");
@@ -306,6 +601,8 @@ function recommend() {
     lines.push(`${own.name}: ${targets.length ? targets.join("、") : "明確な担当なし"}`);
   });
   lines.push("");
+  usageWarningSection(mine, opponents, selection).forEach((line) => lines.push(line));
+  lines.push("");
   lines.push("【相性表】");
   lines.push(["相手", ...mine.map((pokemon) => pokemon.name)].join(" | "));
   lines.push("-".repeat(80));
@@ -313,13 +610,22 @@ function recommend() {
     lines.push([opponent.name, ...mine.map((own) => matchupLabel(matchupScore(own, opponent)))].join(" | "));
   });
   lines.push("");
-  lines.push("※タイプ相性のみで判定しています。技範囲、特性、持ち物、テラスタル、素早さ関係は最終判断で補ってください。");
+  lines.push("【育成論の確認】");
+  lines.push("選出後の型・技・持ち物・性格・努力値は、下の参考リンクからポケモン徹底攻略の育成論や詳細検索で確認できます。");
+  lines.push("");
+  lines.push("※技範囲は内蔵の参考技タイプを使います。参考技タイプが未設定の場合は、そのポケモン自身のタイプ一致技を持つものとして判定します。");
+  lines.push("※威力、命中、特性、持ち物、テラスタル、素早さ関係は最終判断で補ってください。");
   resultText.textContent = lines.join("\n");
+  renderReferenceLinks(selection);
 }
 
 function initialize() {
+  buildNameList();
   buildPartyInputs(ownParty, "own");
   buildPartyInputs(opponentParty, "opponent");
+  wireAutoFill(ownParty);
+  wireAutoFill(opponentParty);
+  renderReferenceLinks([]);
   refreshPartySelect();
 
   document.querySelector("#saveParty").addEventListener("click", handleSaveParty);

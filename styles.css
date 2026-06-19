@@ -166,6 +166,33 @@ select {
   margin-top: 8px;
 }
 
+.move-preview {
+  margin-top: 8px;
+  min-height: 28px;
+  padding: 6px 8px;
+  border: 1px solid #dedbd1;
+  background: #fbfaf6;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.candidate-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  min-height: 24px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.candidate-list button {
+  min-height: 28px;
+  padding: 0 8px;
+  font-size: 12px;
+  background: #f8f7f2;
+}
+
 .command-bar {
   display: flex;
   gap: 10px;
@@ -197,6 +224,29 @@ select {
   font-family: "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
   font-size: 15px;
   line-height: 1.65;
+}
+
+.reference-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.reference-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border: 1px solid #bdb9ae;
+  background: var(--soft);
+  color: #193b78;
+  text-decoration: none;
+  padding: 7px 11px;
+}
+
+.reference-links a:hover {
+  background: #dedbd1;
+  text-decoration: underline;
 }
 
 @media (max-width: 920px) {
