@@ -1,0 +1,201 @@
+[
+    {
+        "id":  "garchomp",
+        "name":  "ガブリアス",
+        "types":  [
+                      "ドラゴン",
+                      "じめん"
+                  ],
+        "baseStats":  {
+                          "hp":  108,
+                          "attack":  130,
+                          "defense":  95,
+                          "spAttack":  80,
+                          "spDefense":  85,
+                          "speed":  102
+                      },
+        "referenceMoveTypes":  [
+                                   "じめん",
+                                   "ドラゴン",
+                                   "いわ",
+                                   "どく"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "raichu",
+        "name":  "ライチュウ",
+        "types":  [
+                      "でんき"
+                  ],
+        "baseStats":  {
+                          "hp":  60,
+                          "attack":  90,
+                          "defense":  55,
+                          "spAttack":  90,
+                          "spDefense":  80,
+                          "speed":  110
+                      },
+        "referenceMoveTypes":  [
+                                   "でんき",
+                                   "かくとう",
+                                   "ノーマル"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "kingambit",
+        "name":  "ドドゲザン",
+        "types":  [
+                      "あく",
+                      "はがね"
+                  ],
+        "baseStats":  {
+                          "hp":  100,
+                          "attack":  135,
+                          "defense":  120,
+                          "spAttack":  60,
+                          "spDefense":  85,
+                          "speed":  50
+                      },
+        "referenceMoveTypes":  [
+                                   "あく",
+                                   "はがね",
+                                   "かくとう"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "azumarill",
+        "name":  "マリルリ",
+        "types":  [
+                      "みず",
+                      "フェアリー"
+                  ],
+        "baseStats":  {
+                          "hp":  100,
+                          "attack":  50,
+                          "defense":  80,
+                          "spAttack":  60,
+                          "spDefense":  80,
+                          "speed":  50
+                      },
+        "referenceMoveTypes":  [
+                                   "みず",
+                                   "フェアリー",
+                                   "かくとう"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "gyarados",
+        "name":  "ギャラドス",
+        "types":  [
+                      "みず",
+                      "ひこう"
+                  ],
+        "baseStats":  {
+                          "hp":  95,
+                          "attack":  125,
+                          "defense":  79,
+                          "spAttack":  60,
+                          "spDefense":  100,
+                          "speed":  81
+                      },
+        "referenceMoveTypes":  [
+                                   "みず",
+                                   "ひこう",
+                                   "あく",
+                                   "じめん"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "gengar",
+        "name":  "ゲンガー",
+        "types":  [
+                      "ゴースト",
+                      "どく"
+                  ],
+        "baseStats":  {
+                          "hp":  60,
+                          "attack":  65,
+                          "defense":  60,
+                          "spAttack":  130,
+                          "spDefense":  75,
+                          "speed":  110
+                      },
+        "referenceMoveTypes":  [
+                                   "ゴースト",
+                                   "どく",
+                                   "かくとう"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "charizard",
+        "name":  "リザードン",
+        "types":  [
+                      "ほのお",
+                      "ひこう"
+                  ],
+        "baseStats":  {
+                          "hp":  78,
+                          "attack":  84,
+                          "defense":  78,
+                          "spAttack":  109,
+                          "spDefense":  85,
+                          "speed":  100
+                      },
+        "referenceMoveTypes":  [
+                                   "ほのお",
+                                   "ひこう",
+                                   "ドラゴン"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "steelix",
+        "name":  "ハガネール",
+        "types":  [
+                      "はがね",
+                      "じめん"
+                  ],
+        "baseStats":  {
+                          "hp":  75,
+                          "attack":  85,
+                          "defense":  200,
+                          "spAttack":  55,
+                          "spDefense":  65,
+                          "speed":  30
+                      },
+        "referenceMoveTypes":  [
+                                   "じめん",
+                                   "はがね",
+                                   "いわ"
+                               ],
+        "updatedAt":  "2026-06-22"
+    },
+    {
+        "id":  "whimsicott",
+        "name":  "エルフーン",
+        "types":  [
+                      "くさ",
+                      "フェアリー"
+                  ],
+        "baseStats":  {
+                          "hp":  60,
+                          "attack":  67,
+                          "defense":  85,
+                          "spAttack":  77,
+                          "spDefense":  75,
+                          "speed":  116
+                      },
+        "referenceMoveTypes":  [
+                                   "くさ",
+                                   "フェアリー",
+                                   "ひこう"
+                               ],
+        "updatedAt":  "2026-06-22"
+    }
+]
