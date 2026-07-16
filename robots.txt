@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://hirotomiyagawa.github.io/Pokemon-Team-Selection/sitemap.xml
