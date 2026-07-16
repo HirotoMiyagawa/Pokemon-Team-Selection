@@ -5,6 +5,8 @@
 ## ファイル
 
 - `pokemon.json`: ポケモンの基本情報、タイプ、種族値、参考技タイプ
+- `SOURCES.md`: 利用するデータソースと注意点
+- `external/veekun/`: veekun/pokedex のCSVを置く場所
 
 ## 編集方針
 
@@ -12,6 +14,17 @@
 - 外部サイトの文章や採用率データは取り込みません。
 - ポケモンチャンピオンズ固有の内定一覧や採用率は管理対象外にします。
 - 不明な値は空欄や空配列にして、無理に推測しません。
+
+## veekun/pokedex から作成する場合
+
+`veekun/pokedex` の `pokedex/data/csv` にあるCSVを `external/veekun/` に置き、次のコマンドを実行します。
+
+```powershell
+cd C:\Users\Hiroto\Documents\Codex\2026-06-17\new-chat\outputs\web
+python tools\import_veekun.py --csv-dir data\external\veekun --output data\pokemon.json
+```
+
+この変換では、名前、タイプ、種族値、参考技タイプだけを取り込みます。
 
 ## pokemon.json の項目
 

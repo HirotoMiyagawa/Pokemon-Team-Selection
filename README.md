@@ -31,6 +31,7 @@
 ## データベース
 
 データは `data/pokemon.json` で管理します。
+基本DBの元データには `veekun/pokedex` のCSVを利用できます。
 
 主な項目:
 
@@ -40,6 +41,8 @@
 - `baseStats`: 種族値
 - `referenceMoveTypes`: 判定に使う参考技タイプ
 - `updatedAt`: 更新日
+
+変換方法は `data/README.md` を確認してください。
 
 ## 注意
 
